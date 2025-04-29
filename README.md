@@ -1,4 +1,4 @@
-# CSC2400_Extra_Credit
+# Recursive Max Finder – Decrease and Conquer Demonstration
 
 ## Overview
 
