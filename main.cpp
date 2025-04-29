@@ -33,11 +33,16 @@ int main(){
             case 1: 
                     cout << "\n\n";
                     myArray = defineArray(elements);
+                    cout << " ___________________________________________________________" << "\n"
+                         << "|  SIZE  |  MAX VALUE  |  COMPARISION  |  VALID COMPARISON  |" << "\n";
                     maxValue = recusiveMaxFind(myArray, elements);
+                    cout << "|                    FINISHED RECURSION                     |" << "\n"
+                         << "|___________________________________________________________|" << "\n"
+                         << "The maximum value that was found in the array was " << maxValue << "\n\n";
                     break;
             case 2: 
                     cout << "\n\n"
-                         << "Here is a full description of the program and its steps:"
+                         << "Here is a full description of the program and its steps:\n"
                          << "PUT STUFF HERE";
                     break;
             case 3: 
@@ -108,7 +113,7 @@ int* defineArray(int& elements){
         array[index++] = stoi(token);
     }
     
-    cout << "\nArray has been dynamically allocated successfully";
+    cout << "\nArray has been dynamically allocated successfully!\n";
     return array;
 }
 
@@ -117,13 +122,21 @@ int* defineArray(int& elements){
 	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
 */
 int recusiveMaxFind(int* array, int elements){    
-    if (elements == 1)
+    if (elements == 1){
+        cout << "\t" << elements << "\t\t\t" << array[0] << "\t\t\t" 
+             << array[0] << " > N/A\t\t\tN/A\n"; 
         return array[0];
+    }
 
     int maxValue = recusiveMaxFind(array, elements - 1);
-
-    if (maxValue > array[elements - 1])
+    
+    cout << "\t" << elements << "\t\t\t" << maxValue << "\t\t\t" << maxValue << " > " << array[elements - 1] << "\t\t"; 
+    if (maxValue > array[elements - 1]){
+        cout << "\tTRUE\n";
         return maxValue;
-    else 
+    }
+    else{
+        cout << "\tFALSE\n";
         return array[elements - 1];
+    }
 }
