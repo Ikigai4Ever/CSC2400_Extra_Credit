@@ -34,3 +34,5 @@ note**: this is a parameter and not hardcoded
 ## Citations: 
 
 “I want to take in a set of numbers like this: 3, 5, 2, 9, 1, 8, 0, 2 and make sure to read only the numbers from the string.” prompt. ChatGPT, 13 Feb. version 4.0, OpenAI, 29 Apr. 2025, chat.openai.com/chat.
+
+“How does my recursiveMaxFind algorithm look?” prompt. ChatGPT, 13 Feb. version 4.0, OpenAI, 29 Apr. 2025, chat.openai.com/chat.

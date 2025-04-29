@@ -12,14 +12,16 @@
 #include <string>
 using namespace std;
 
-/*****FUNCTION PROTOTYPES*****/
+/************* FUNCTION PROTOTYPES *************/
 int menu();
-int* defineArray(int);
+int* defineArray(int&);
+int recusiveMaxFind(int*, int);
 
 int main(){
-    int* myArray;     //dynamically allocate array that is defined by user
+    int* myArray;   //dynamically allocate array that is defined by user
     int menuChoice; //Save the value that is given from the menu 
     int elements;   //Number of elements wanted in the array for the example
+    int maxValue;   //Max value that has been found in the array of values that user specified
 
     cout << "Welcome! Please select a menu choice:";
 
@@ -31,6 +33,7 @@ int main(){
             case 1: 
                     cout << "\n\n";
                     myArray = defineArray(elements);
+                    maxValue = recusiveMaxFind(myArray, elements);
                     break;
             case 2: 
                     cout << "\n\n"
@@ -41,16 +44,14 @@ int main(){
                     cout << "\n\n Have a great rest of your day!\n\n";
                     break;
         } 
-
-    
-
-
     }while (menuChoice != 3);
 
     
     delete [] myArray;    //free dynamically allocated array
     return 0;
 }
+
+/***************** FUNCTIONS *****************/
 
 /*
 	FUNCTION: menu()
@@ -84,7 +85,7 @@ int menu(){
 	FUNCTION: defineArray
 	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
 */
-int* defineArray(int elements){
+int* defineArray(int& elements){
     string input;
     cout << "Enter numbers separated by commas (e.g., 3,5,2,9): ";
     getline(cin >> ws, input);  //read whole line including leading whitespace
@@ -111,7 +112,18 @@ int* defineArray(int elements){
     return array;
 }
 
-int recusiveMaxFind(int* array, int elements){
+/*
+	FUNCTION: recursiveMaxFind()
+	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
+*/
+int recusiveMaxFind(int* array, int elements){    
+    if (elements == 1)
+        return array[0];
 
-    return *array;
+    int maxValue = recusiveMaxFind(array, elements - 1);
+
+    if (maxValue > array[elements - 1])
+        return maxValue;
+    else 
+        return array[elements - 1];
 }
