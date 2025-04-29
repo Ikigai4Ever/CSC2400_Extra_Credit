@@ -15,7 +15,7 @@ using namespace std;
 /************* FUNCTION PROTOTYPES *************/
 int menu();
 int* defineArray(int&);
-int recusiveMaxFind(int*, int);
+int recursiveMaxFind(int*, int);
 
 int main(){
     int* myArray;   //dynamically allocate array that is defined by user
@@ -35,15 +35,19 @@ int main(){
                     myArray = defineArray(elements);
                     cout << " ___________________________________________________________" << "\n"
                          << "|  SIZE  |  MAX VALUE  |  COMPARISION  |  VALID COMPARISON  |" << "\n";
-                    maxValue = recusiveMaxFind(myArray, elements);
+                    maxValue = recursiveMaxFind(myArray, elements);
                     cout << "|                    FINISHED RECURSION                     |" << "\n"
                          << "|___________________________________________________________|" << "\n"
                          << "The maximum value that was found in the array was " << maxValue << "\n\n";
                     break;
             case 2: 
                     cout << "\n\n"
-                         << "Here is a full description of the program and its steps:\n"
-                         << "PUT STUFF HERE";
+                         << "Here are the different parts of the program:\n"
+                         << "DECREASE PHASE:\t" << "The array size is reduced in the recursiveMaxFind function on each recursive call and continues to reduce until it reaches the base case which means that there is only one element left.\n\n"
+                         << "BASE CASE:\t" << "Once the size is 1, that element is returned into the recursive function as the starting \"maximum\" value, which begins the conquer phase.\n\n"
+                         << "CONQUER PHASE:\t" << "This is best shown by looking at the size column, which represents the index of the array the recursive call is currently in. It then prints the comparision in the \"COMPARISON\" column to demonstrate the values it's comparing before going to the next element.\n\n"
+                         << "OUTPUT:\t" << "The final output of the program shows the output of the array that was given by the user. The table demonstrates the recursive trace step-by-step to visualize how decrease-and-conquer recursion works.\n\n";
+
                     break;
             case 3: 
                     cout << "\n\n Have a great rest of your day!\n\n";
@@ -56,7 +60,7 @@ int main(){
     return 0;
 }
 
-/***************** FUNCTIONS *****************/
+/***************** n will NS *****************/
 
 /*
 	FUNCTION: menu()
@@ -121,14 +125,14 @@ int* defineArray(int& elements){
 	FUNCTION: recursiveMaxFind()
 	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
 */
-int recusiveMaxFind(int* array, int elements){    
+int recursiveMaxFind(int* array, int elements){    
     if (elements == 1){
         cout << "\t" << elements << "\t\t\t" << array[0] << "\t\t\t" 
              << array[0] << " > N/A\t\t\tN/A\n"; 
         return array[0];
     }
 
-    int maxValue = recusiveMaxFind(array, elements - 1);
+    int maxValue = recursiveMaxFind(array, elements - 1);
     
     cout << "\t" << elements << "\t\t\t" << maxValue << "\t\t\t" << maxValue << " > " << array[elements - 1] << "\t\t"; 
     if (maxValue > array[elements - 1]){
