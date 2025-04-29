@@ -3,7 +3,9 @@
    Team Member Two: Blake Hudson
            Program: main.cpp 
               Date: 4/29/25
-       Description: 
+       Compliation: Compiled using Programiz online complier
+	   		Output: Dynamic output displayed on the console that demonstrates the different 
+	  				steps of the recusive call for the decrease and conquer algorithm.
 *************************************/
 
 #include <iostream> 
@@ -60,7 +62,7 @@ int main(){
     return 0;
 }
 
-/***************** n will NS *****************/
+/***************** FUNCTIONS *****************/
 
 /*
 	FUNCTION: menu()
@@ -91,7 +93,7 @@ int menu(){
 }
 
 /*
-	FUNCTION: defineArray
+	FUNCTION: defineArray()
 	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
 */
 int* defineArray(int& elements){
@@ -117,13 +119,15 @@ int* defineArray(int& elements){
         array[index++] = stoi(token);
     }
     
-    cout << "\nArray has been dynamically allocated successfully!\n";
+    //cout << "\nArray has been dynamically allocated successfully!\n";
     return array;
 }
 
 /*
 	FUNCTION: recursiveMaxFind()
-	 PURPOSE: Read comma-separated values from the user, store in a dynamic array
+	 PURPOSE: Recurse through the array defined by the user and begin to compare 
+  			  the first number in the array to the index to the right of it to find 
+	   		  the maximum value in the array and send it back to the main function.
 */
 int recursiveMaxFind(int* array, int elements){    
     if (elements == 1){
