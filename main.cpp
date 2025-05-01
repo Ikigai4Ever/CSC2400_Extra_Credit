@@ -132,7 +132,7 @@ int* defineArray(int& elements){
 int recursiveMaxFind(int* array, int elements){    
     if (elements == 1){
         cout << "\t" << elements << "\t\t\t" << array[0] << "\t\t\t" 
-             << array[0] << " > N/A\t\t\tN/A\n"; 
+             << array[0] << " > N/A\t\t\tBASE CASE\n"; 
         return array[0];
     }
 
